@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+
+<head>
+    <style>
+        body {
+            background-color: transparent;
+            font-family: sans-serif;
+            font-size: 200px;
+            color: white;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="time">00:00:00</div>
+    <script>
+        const timeElement = document.getElementById("time");
+
+        let socket;
+        let reconnectInterval = 1000;
+
+        const connect = () => {
+            socket = new WebSocket("ws://localhost:8000/ws");
+
+            socket.onopen = () => {
+                reconnectInterval = 1000;
+            };
+
+            socket.onmessage = (event) => {
+                timeElement.innerText = event.data;
+            };
+
+            socket.onclose = (e) => {
+                setTimeout(() => {
+                    reconnectInterval = Math.min(reconnectInterval * 2, 10000);
+                    connect();
+                }, reconnectInterval);
+            };
+
+            socket.onerror = (err) => {
+                socket.close();
+            };
+        };
+
+        connect();
+    </script>
+</body>
+
+</html>
