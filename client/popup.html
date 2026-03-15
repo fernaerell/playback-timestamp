@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 320px;
+      padding: 15px;
+      background: #121212;
+      color: #e0e0e0;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+    }
+
+    input {
+      width: 100%;
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 6px;
+      padding: 10px;
+      color: #fff;
+      outline: none;
+      font-size: 13px;
+    }
+
+    input:focus {
+      border-color: #0078d4;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 6px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: 0.2s;
+      text-transform: uppercase;
+    }
+
+    .btn-connect {
+      background: #0078d4;
+      color: white;
+    }
+
+    .btn-disconnect {
+      background: #d83b01;
+      color: white;
+    }
+
+    .status-bar {
+      width: 100%;
+      font-size: 11px;
+      padding: 8px;
+      border-radius: 4px;
+      background: #1e1e1e;
+      border-left: 3px solid #555;
+      line-height: 1.4;
+      color: #aaa;
+      min-height: 16px;
+      word-break: break-word;
+      white-space: normal;
+    }
+
+    .status-active {
+      border-left-color: #00c853;
+      color: #fff;
+    }
+
+    .status-error {
+      border-left-color: #ff5252;
+      color: #ff8a80;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Playback Timestamp</h2>
+    <div id="status" class="status-bar">Initializing...</div>
+    <input type="text" id="ws_url" placeholder="WebSocket URL">
+    <button id="main_btn">Connect</button>
+    <a href="https://github.com/fernaerell/playback-timestamp" target="_blank">Created with ❤️ by Fern Aerell</a>
+  </div>
+  <script src="popup.js"></script>
+</body>
+
+</html>

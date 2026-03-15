@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "Playback Timestamp",
+    "description": "Extract video timestamp and send to websocket.",
+    "version": "1.0",
+    "author": "Fern Aerell",
+    "homepage_url": "https://github.com/fernaerell/playback-timestamp",
+    "icons": {
+        "16": "icon.png",
+        "48": "icon.png",
+        "128": "icon.png"
+    },
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "host_permissions": [
+        "<all_urls>"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "permissions": [
+        "scripting",
+        "activeTab",
+        "storage",
+        "tabs"
+    ]
+}
